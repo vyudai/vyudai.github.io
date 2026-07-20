@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">x
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>vyud.ai Technologies — Engineering Tomorrow with AI</title>
+<meta name="description" content="AI-first technology solutions for banking, fintech, enterprise software, and digital transformation. Official Mifos Partner." />
+<link rel="preconnect" href="https://api.fontshare.com" />
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Comfortaa:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --background: 260 87% 3%;
+    --foreground: 40 6% 95%;
+    --hero-sub: 40 6% 82%;
+    --violet: #a855f7;
+    --indigo: #6366f1;
+    --cyan: #22d3ee;
+    --amber: #fcd34d;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Inter",system-ui,sans-serif;
+    background:hsl(var(--background));
+    color:hsl(var(--foreground));
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{font-family:"General Sans","Inter",sans-serif}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--violet);color:#fff}
+
+  /* ---------- Liquid glass ---------- */
+  .liquid-glass{
+    background:rgba(255,255,255,0.01);
+    background-blend-mode:luminosity;
+    backdrop-filter:blur(4px);
+    -webkit-backdrop-filter:blur(4px);
+    border:none;
+    box-shadow:inset 0 1px 1px rgba(255,255,255,0.1);
+    position:relative;
+    overflow:hidden;
+  }
+  .liquid-glass::before{
+    content:"";position:absolute;inset:0;border-radius:inherit;padding:1.4px;
+    background:linear-gradient(180deg,rgba(255,255,255,0.45) 0%,rgba(255,255,255,0.15) 20%,rgba(255,255,255,0) 40%,rgba(255,255,255,0) 60%,rgba(255,255,255,0.15) 80%,rgba(255,255,255,0.45) 100%);
+    -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;
+  }
+
+  .container{max-width:1200px;margin:0 auto;padding:0 32px}
+  .gradient-text{
+    background:linear-gradient(to left,#6366f1,#a855f7,#fcd34d);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    background-size:200% auto;animation:shine 6s linear infinite;
+  }
+  @keyframes shine{to{background-position:200% center}}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;cursor:pointer;
+    font-weight:500;font-size:15px;border-radius:9999px;
+    transition:transform .25s ease,box-shadow .25s ease,background .25s ease;
+    border:none;color:hsl(var(--foreground));
+  }
+  .btn-secondary{
+    background:rgba(255,255,255,0.04);
+    backdrop-filter:blur(8px);
+    box-shadow:inset 0 1px 1px rgba(255,255,255,0.12);
+    padding:14px 29px;position:relative;overflow:hidden;
+  }
+  .btn-secondary::before{
+    content:"";position:absolute;inset:0;border-radius:inherit;padding:1.4px;
+    background:linear-gradient(180deg,rgba(255,255,255,0.45),rgba(255,255,255,0.05) 50%,rgba(255,255,255,0.45));
+    -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;
+  }
+  .btn-secondary:hover{transform:translateY(-2px);background:rgba(255,255,255,0.08)}
+  .btn-primary{
+    background:linear-gradient(120deg,#6366f1,#a855f7);
+    padding:14px 29px;color:#fff;font-weight:600;
+    box-shadow:0 8px 30px -8px rgba(168,85,247,0.6);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 40px -8px rgba(168,85,247,0.75)}
+  .btn-sm{padding:9px 18px;font-size:14px}
+
+  /* ---------- Navbar ---------- */
+  nav.navbar{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    padding:18px 32px;display:flex;align-items:center;justify-content:space-between;
+    transition:background .3s ease,backdrop-filter .3s ease,padding .3s ease;
+  }
+  nav.navbar.scrolled{
+    background:rgba(10,4,25,0.6);backdrop-filter:blur(16px);
+    padding:12px 32px;border-bottom:1px solid rgba(255,255,255,0.06);
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-family:"General Sans";font-weight:600;font-size:20px}
+  .brand .logo-mark{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;
+    background:linear-gradient(135deg,#6366f1,#a855f7 55%,#22d3ee);box-shadow:0 0 22px -4px rgba(99,102,241,.8)}
+  .brand .logo-mark svg{width:20px;height:20px}
+  /* wavy lowercase wordmark */
+  .word{display:inline-flex;font-family:"Comfortaa",cursive;font-weight:700;font-size:1.02em;letter-spacing:.01em}
+  .word i{font-style:normal;display:inline-block;
+    background:linear-gradient(180deg,#dbe4ff 0%,#a5b4fc 45%,#a855f7 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    animation:letterWave 3.4s ease-in-out infinite}
+  .word i:nth-child(1){animation-delay:0s}
+  .word i:nth-child(2){animation-delay:.12s}
+  .word i:nth-child(3){animation-delay:.24s}
+  .word i:nth-child(4){animation-delay:.36s}
+  .word i:nth-child(5){animation-delay:.48s}
+  .word i:nth-child(6){animation-delay:.6s}
+  .word i:nth-child(7){animation-delay:.72s}
+  @keyframes letterWave{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}
+  @media(prefers-reduced-motion:reduce){.word i{animation:none}}
+  .nav-links{display:flex;gap:30px;align-items:center}
+  .nav-links a{color:rgba(245,244,240,.9);font-size:15px;transition:color .2s;display:flex;align-items:center;gap:4px}
+  .nav-links a:hover{color:#fff}
+  .nav-toggle{display:none;background:none;border:none;color:#fff;font-size:26px;cursor:pointer}
+  @media(max-width:900px){
+    .nav-links{display:none}
+    .nav-toggle{display:block}
+    .brand{font-size:18px}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero-wrap{position:relative;min-height:100vh;overflow:hidden;display:flex;flex-direction:column}
+  #bgCanvas{position:absolute;inset:0;width:100%;height:100%;opacity:0;z-index:0;
+    transition:opacity 1.2s ease}
+  #bgCanvas.ready{opacity:1}
+  .hero-vignette{position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:radial-gradient(ellipse at center,transparent 40%,hsl(var(--background)) 100%)}
+  .hero-blur{position:absolute;top:50%;left:50%;width:984px;max-width:120vw;height:527px;
+    opacity:.9;background:#030014;filter:blur(82px);transform:translate(-50%,-50%);
+    pointer-events:none;z-index:1}
+  .hero-inner{position:relative;z-index:10;flex:1;display:flex;flex-direction:column}
+  .hero-center{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 0}
+  .hero-badge{margin-bottom:26px;padding:8px 18px;border-radius:9999px;font-size:13px;
+    letter-spacing:.02em;color:rgba(245,244,240,.85);display:inline-flex;align-items:center;gap:8px}
+  .hero-badge .dot{width:7px;height:7px;border-radius:50%;background:#22d3ee;box-shadow:0 0 10px #22d3ee}
+  h1.hero-title{
+    font-size:clamp(48px,9vw,132px);font-weight:400;line-height:1.02;
+    letter-spacing:-0.024em;font-family:"General Sans"
+  }
+  .hero-sub{color:hsl(var(--hero-sub));font-size:19px;line-height:1.7;max-width:640px;
+    margin:22px auto 0;opacity:.85}
+  .hero-cta{display:flex;gap:16px;margin-top:34px;flex-wrap:wrap;justify-content:center}
+
+  /* ---------- Marquee ---------- */
+  .marquee-region{position:relative;z-index:10;padding-bottom:40px;padding-top:30px}
+  .marquee-box{max-width:1024px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:48px}
+  .marquee-label{color:rgba(245,244,240,.5);font-size:14px;line-height:1.5;white-space:nowrap;flex-shrink:0}
+  .marquee-mask{overflow:hidden;position:relative;flex:1;
+    -webkit-mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+    mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+  .marquee-track{display:flex;gap:56px;width:max-content;animation:marquee 24s linear infinite}
+  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .marquee-item{display:flex;align-items:center;gap:12px;flex-shrink:0}
+  .marquee-item .ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
+    font-size:13px;font-weight:700;color:#fff}
+  .marquee-item span{font-size:16px;font-weight:600;color:hsl(var(--foreground));white-space:nowrap}
+  @media(max-width:700px){.marquee-box{flex-direction:column;gap:20px}.marquee-label{text-align:center}}
+
+  /* ---------- Sections ---------- */
+  section.block{padding:110px 0;position:relative}
+  .eyebrow{color:#a855f7;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}
+  .section-title{font-size:clamp(30px,4.5vw,48px);font-weight:600;line-height:1.1;letter-spacing:-0.02em}
+  .section-lead{color:hsl(var(--hero-sub));font-size:18px;line-height:1.7;max-width:620px;margin-top:18px;opacity:.85}
+  .center{text-align:center}
+  .center .section-lead{margin-left:auto;margin-right:auto}
+
+  .aurora{position:absolute;border-radius:50%;filter:blur(120px);opacity:.28;pointer-events:none;z-index:0}
+  .aurora.a1{width:520px;height:520px;background:#6366f1;top:-120px;left:-160px}
+  .aurora.a2{width:460px;height:460px;background:#a855f7;bottom:-140px;right:-120px}
+  .aurora.a3{width:400px;height:400px;background:#22d3ee;top:40%;right:20%;opacity:.14}
+  .block > .container{position:relative;z-index:2}
+
+  /* Cards */
+  .grid{display:grid;gap:22px}
+  .card{border-radius:22px;padding:30px;transition:transform .35s ease,box-shadow .35s ease}
+  .card:hover{transform:translateY(-6px)}
+  .card .card-icon{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;margin-bottom:20px;
+    background:linear-gradient(135deg,rgba(99,102,241,.25),rgba(168,85,247,.25));
+    box-shadow:inset 0 1px 1px rgba(255,255,255,.15)}
+  .card .card-icon svg{width:26px;height:26px;stroke:#c4b5fd}
+  .card h3{font-size:21px;font-weight:600;margin-bottom:12px}
+  .card p{color:hsl(var(--hero-sub));font-size:15px;line-height:1.65;opacity:.82}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+  .tag{font-size:12px;padding:5px 12px;border-radius:9999px;background:rgba(255,255,255,.04);
+    color:rgba(245,244,240,.75);box-shadow:inset 0 0 0 1px rgba(255,255,255,.07)}
+
+  .cols-2{grid-template-columns:repeat(2,1fr)}
+  .cols-3{grid-template-columns:repeat(3,1fr)}
+  .cols-4{grid-template-columns:repeat(4,1fr)}
+  @media(max-width:1000px){.cols-3,.cols-4{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:680px){.cols-2,.cols-3,.cols-4{grid-template-columns:1fr}}
+
+  /* Product cards */
+  .product-card{border-radius:22px;padding:28px;transition:transform .35s ease}
+  .product-card:hover{transform:translateY(-6px)}
+  .product-head{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+  .product-head .p-ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-weight:700;
+    font-family:"General Sans";color:#fff;background:linear-gradient(135deg,#6366f1,#a855f7)}
+  .product-head h3{font-size:20px;font-weight:600}
+  .product-card ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+  .product-card li{color:hsl(var(--hero-sub));font-size:14.5px;display:flex;align-items:center;gap:10px;opacity:.85}
+  .product-card li::before{content:"";width:6px;height:6px;border-radius:50%;background:#a855f7;flex-shrink:0;box-shadow:0 0 8px #a855f7}
+  .pricing-banner{margin-top:44px;border-radius:22px;padding:30px 40px;display:flex;
+    align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px}
+  .pricing-banner .price{font-family:"General Sans";font-size:36px;font-weight:600}
+  .pricing-banner .price small{font-size:15px;font-weight:400;color:hsl(var(--hero-sub))}
+
+  /* Why choose - small feature chips */
+  .feat{border-radius:16px;padding:22px 20px;display:flex;flex-direction:column;gap:10px;transition:transform .3s}
+  .feat:hover{transform:translateY(-5px)}
+  .feat .fi{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;
+    background:linear-gradient(135deg,rgba(34,211,238,.22),rgba(168,85,247,.22))}
+  .feat .fi svg{width:20px;height:20px;stroke:#a5f3fc}
+  .feat h4{font-size:16px;font-weight:600}
+  .feat p{font-size:13px;color:hsl(var(--hero-sub));opacity:.75;line-height:1.5}
+
+  /* Industries pills */
+  .pills{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+  .pill{padding:12px 22px;border-radius:9999px;font-size:15px;font-weight:500;
+    color:rgba(245,244,240,.88);transition:transform .25s,background .25s}
+  .pill:hover{transform:translateY(-3px)}
+
+  /* Tech marquee */
+  .tech-marquee{margin-top:48px;display:flex;flex-direction:column;gap:22px}
+  .tech-row{overflow:hidden;position:relative;padding:14px 0;
+    -webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+    mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+  .tech-track{display:flex;gap:18px;width:max-content;animation:techScroll linear infinite;will-change:transform}
+  @keyframes techScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .tech-row:hover .tech-track{animation-play-state:paused}
+  .tech{display:flex;align-items:center;gap:12px;flex-shrink:0;padding:14px 24px;border-radius:16px;
+    cursor:default;transition:transform .35s cubic-bezier(.2,.8,.3,1.2),box-shadow .35s ease,background .35s ease;z-index:1}
+  .tech:hover{transform:scale(1.18);z-index:5;background:rgba(255,255,255,.06);
+    box-shadow:0 12px 40px -10px rgba(168,85,247,.55),inset 0 1px 1px rgba(255,255,255,.15)}
+  .tech img{width:32px;height:32px;object-fit:contain;filter:drop-shadow(0 0 6px rgba(255,255,255,.12))}
+  .tech .tdot{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;font-weight:700;
+    font-size:13px;color:#fff;font-family:"General Sans";flex-shrink:0}
+  .tech span.tname{font-size:14.5px;font-weight:500;color:rgba(245,244,240,.85);white-space:nowrap}
+
+  /* Stats */
+  .stats{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
+  @media(max-width:1000px){.stats{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:560px){.stats{grid-template-columns:repeat(2,1fr)}}
+  .stat{border-radius:18px;padding:26px 18px;text-align:center}
+  .stat .num{font-family:"General Sans";font-size:40px;font-weight:600;line-height:1}
+  .stat .lbl{margin-top:10px;font-size:13.5px;color:hsl(var(--hero-sub));opacity:.8}
+
+  /* Testimonials */
+  .quote-card{border-radius:22px;padding:30px;display:flex;flex-direction:column;gap:18px}
+  .quote-card .stars{color:#fcd34d;font-size:16px;letter-spacing:2px}
+  .quote-card p{font-size:16px;line-height:1.7;color:hsl(var(--foreground))}
+  .quote-card .who{display:flex;flex-direction:column;gap:2px}
+  .quote-card .who .n{font-weight:600;font-size:15px}
+  .quote-card .who .r{font-size:13px;color:hsl(var(--hero-sub));opacity:.75}
+
+  /* About split */
+  .split{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+  @media(max-width:900px){.split{grid-template-columns:1fr;gap:40px}}
+  .about-body p{color:hsl(var(--hero-sub));font-size:16.5px;line-height:1.8;margin-top:18px;opacity:.85}
+  .about-visual{border-radius:26px;padding:40px;min-height:360px;position:relative;overflow:hidden;
+    display:flex;flex-direction:column;justify-content:flex-end;gap:14px}
+  .about-visual .float{position:absolute;border-radius:18px;padding:16px 20px;font-size:14px}
+  .about-visual .f1{top:34px;left:34px}
+  .about-visual .f2{top:120px;right:30px}
+  .about-visual .badge-partner{font-family:"General Sans";font-weight:600;font-size:22px;line-height:1.3}
+  .about-visual .badge-partner span{color:#c4b5fd}
+
+  /* CTA */
+  .cta-block{border-radius:30px;padding:80px 40px;text-align:center;position:relative;overflow:hidden}
+  .cta-block h2{font-size:clamp(32px,5vw,54px);font-weight:600;letter-spacing:-.02em}
+  .cta-block .hero-cta{margin-top:32px}
+
+  /* Contact */
+  .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px}
+  @media(max-width:900px){.contact-grid{grid-template-columns:1fr;gap:34px}}
+  .info-item{display:flex;gap:16px;margin-bottom:24px}
+  .info-item .ii{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;flex-shrink:0;
+    background:linear-gradient(135deg,rgba(99,102,241,.25),rgba(168,85,247,.25))}
+  .info-item .ii svg{width:20px;height:20px;stroke:#c4b5fd}
+  .info-item h4{font-size:14px;font-weight:600;margin-bottom:4px}
+  .info-item p,.info-item a{font-size:14.5px;color:hsl(var(--hero-sub));opacity:.85;line-height:1.5;display:block}
+  .info-item a:hover{color:#c4b5fd}
+  form{border-radius:24px;padding:34px}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:560px){.form-row{grid-template-columns:1fr}}
+  .field{margin-bottom:16px}
+  .field label{display:block;font-size:13px;margin-bottom:7px;color:rgba(245,244,240,.8)}
+  .field input,.field select,.field textarea{
+    width:100%;padding:13px 15px;border-radius:12px;font-family:inherit;font-size:14.5px;
+    background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);color:#fff;
+    transition:border .2s,background .2s;outline:none}
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:#a855f7;background:rgba(255,255,255,.06)}
+  .field textarea{resize:vertical;min-height:110px}
+  .field select option{background:#0a0419}
+  .form-note{font-size:13px;color:hsl(var(--hero-sub));opacity:.7;margin-top:14px;text-align:center}
+
+  /* Footer */
+  footer{border-top:1px solid rgba(255,255,255,.07);padding:70px 0 30px;position:relative}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+  @media(max-width:900px){.foot-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.foot-grid{grid-template-columns:1fr}}
+  .foot-col h5{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+    color:rgba(245,244,240,.6);margin-bottom:18px}
+  .foot-col a{display:block;font-size:14.5px;color:hsl(var(--hero-sub));opacity:.8;margin-bottom:11px;transition:color .2s}
+  .foot-col a:hover{color:#fff;opacity:1}
+  .foot-about p{color:hsl(var(--hero-sub));opacity:.8;font-size:14.5px;line-height:1.7;margin-top:16px;max-width:300px}
+  .foot-bottom{margin-top:56px;padding-top:26px;border-top:1px solid rgba(255,255,255,.07);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+    font-size:13.5px;color:hsl(var(--hero-sub));opacity:.7}
+
+  .divider-line{height:1px;background:linear-gradient(to right,transparent,rgba(245,244,240,.2),transparent);
+    max-width:1200px;margin:3px auto 0}
+
+  /* reveal on scroll */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar" id="navbar">
+  <a href="#home" class="brand">
+    <span class="logo-mark">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="6" cy="7" r="2" fill="#fff"/><circle cx="18" cy="6" r="1.6" fill="#fff"/>
+        <circle cx="12" cy="17" r="2.2" fill="#fff"/><circle cx="19" cy="16" r="1.5" fill="#fff"/>
+        <path d="M6 7L12 17M18 6L12 17M19 16L12 17" stroke="#fff" stroke-width="1.1" stroke-linecap="round"/>
+      </svg>
+    </span>
+    <span class="word"><i>v</i><i>y</i><i>u</i><i>d</i><i>.</i><i>a</i><i>i</i></span>
+  </a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#products">Products</a>
+    <a href="#why">Why Us</a>
+    <a href="#industries">Industries</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="#contact" class="btn btn-secondary btn-sm">Book a Consultation</a>
+</nav>
+
+<!-- ============ HERO ============ -->
+<div class="hero-wrap" id="home">
+  <canvas id="bgCanvas" aria-hidden="true"></canvas>
+  <div class="hero-blur"></div>
+  <div class="hero-vignette"></div>
+
+  <div class="hero-inner">
+    <div class="hero-center">
+      <div class="hero-badge liquid-glass"><span class="dot"></span> Official Mifos Partner · AI-First Engineering</div>
+      <h1 class="hero-title">Engineering Tomorrow<br>with <span class="gradient-text">AI</span></h1>
+      <p class="hero-sub">AI-first technology solutions for banking, fintech, enterprise software, and digital transformation.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">Book a Consultation</a>
+        <a href="#products" class="btn btn-secondary">Explore Products</a>
+      </div>
+    </div>
+
+    <div class="marquee-region">
+      <div class="marquee-box">
+        <div class="marquee-label">Trusted by Financial<br>Institutions &amp; Technology Companies</div>
+        <div class="marquee-mask">
+          <div class="marquee-track" id="marqueeTrack"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<section class="block" id="about">
+  <div class="aurora a1"></div>
+  <div class="container">
+    <div class="split">
+      <div class="about-body reveal">
+        <div class="eyebrow">About vyud.ai</div>
+        <h2 class="section-title">Engineering the Future of Financial Technology</h2>
+        <p>vyud.ai Technologies is an AI-first technology company committed to building the technologies of tomorrow. We combine deep expertise in fintech, cloud-native engineering, artificial intelligence, and enterprise software to help organizations transform how they operate.</p>
+        <p>As an Official Mifos Partner, we specialize in implementing and supporting Apache Fineract and Mifos Payment Hub, enabling financial institutions to deliver secure, scalable, and inclusive digital banking services.</p>
+        <p>Beyond banking, our subscription-based SaaS products empower businesses with intelligent tools for analytics, security, project delivery, asset tracking, and operational management. Our goal is simple: use technology to improve organizations, expand financial inclusion, and positively impact thousands of lives.</p>
+      </div>
+      <div class="about-visual liquid-glass reveal">
+        <div class="float liquid-glass f1">⚡ Cloud-Native Architecture</div>
+        <div class="float liquid-glass f2">🤖 Intelligent Automation</div>
+        <div class="badge-partner">Official <span>Mifos</span> Partner<br>Apache Fineract &amp; Payment Hub</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="block" id="services">
+  <div class="aurora a2"></div>
+  <div class="container">
+    <div class="center reveal">
+      <div class="eyebrow">Core Services</div>
+      <h2 class="section-title">Everything You Need to Modernize</h2>
+      <p class="section-lead">From intelligent automation to open-source banking, we deliver end-to-end engineering across the technology stack.</p>
+    </div>
+    <div class="grid cols-3" style="margin-top:52px">
+      <div class="card liquid-glass reveal">
+        <div class="card-icon"><svg fill="none" stroke-width="1.6" viewBox="0 0 24 24"><path d="M12 2a4 4 0 00-4 4v1a4 4 0 000 8v1a4 4 0 108 0v-1a4 4 0 000-8V6a4 4 0 00-4-4z" stroke-linecap="round"/></svg></div>
+        <h3>AI &amp; Intelligent Automation</h3>
+        <p>AI-powered solutions that automate operations, improve decisions, reduce cost, and elevate customer experience.</p>
+        <div class="tags"><span class="tag">Generative AI</span><span class="tag">AI Agents</span><span class="tag">Predictive Analytics</span><span class="tag">ML</span><span class="tag">Document Intelligence</span><span class="tag">Knowledge Systems</span></div>
+      </div>
+      <div class="card liquid-glass reveal">
+        <div class="card-icon"><svg fill="none" stroke-width="1.6" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 20V10" stroke-linecap="round"/></svg></div>
+        <h3>Digital Banking Solutions</h3>
+        <p>Official Mifos Partner delivering core banking, digital lending, and financial inclusion platforms.</p>
+        <div class="tags"><span class="tag">Apache Fineract</span><span class="tag">Mifos Payment Hub</span><span class="tag">Loan Management</span><span class="tag">Mobile Banking</span><span class="tag">Agency Banking</span></div>
+      </div>
+      <div class="card liquid-glass reveal">
+        <div class="card-icon"><svg fill="none" stroke-width="1.6" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 00-2 2v3M16 3h3a2 2 0 012 2v3M8 21H5a2 2 0 01-2-2v-3M16 21h3a2 2 0 002-2v-3" stroke-linecap="round"/></svg></div>
+        <h3>Enterprise Software Development</h3>
+        <p>Custom enterprise applications built with modern, resilient cloud-native architecture.</p>
+        <div class="tags"><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Kubernetes</span><span class="tag">AWS</span><span class="tag">Kafka</span><span class="tag">Microservices</span></div>
+      </div>
+      <div class="card liquid-glass reveal">
+        <div class="card-icon"><svg fill="none" stroke-width="1.6" viewBox="0 0 24 24"><path d="M12 2l3 6 6 .9-4.5 4.3L18 20l-6-3.2L6 20l1.5-6.8L3 8.9 9 8z" stroke-linejoin="round"/></svg></div>
+        <h3>Product Engineering</h3>
+        <p>Design and build scalable SaaS platforms from concept to production, with DevOps baked in.</p>
+        <div class="tags"><span class="tag">Product Design</span><span class="tag">MVP</span><span class="tag">Architecture</span><span class="tag">DevOps</span><span class="tag">CI/CD</span><span class="tag">Platform Engineering</span></div>
+      </div>
+      <div class="card liquid-glass reveal">
+        <div class="card-icon"><svg fill="none" stroke-width="1.6" viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M12 2a7 7 0 00-4 12c.7.6 1 1.2 1 2h6c0-.8.3-1.4 1-2a7 7 0 00-4-12z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Consulting &amp; Professional Services</h3>
+        <p>Strategic guidance to modernize technology, strengthen security, and adopt open source with confidence.</p>
+        <div class="tags"><span class="tag">Architecture Consulting</span><span class="tag">Cloud Migration</span><span class="tag">Security Assessments</span><span class="tag">Digital Transformation</span><span class="tag">Training</span></div>
+      </div>
+      <div class="card liquid-glass reveal">
+        <div class="card-icon"><svg fill="none" stroke-width="1.6" viewBox="0 0 24 24"><path d="M21 12a9 9 0 11-6.2-8.5" stroke-linecap="round"/><path d="M21 4v5h-5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Managed Services &amp; Support</h3>
+        <p>24×7 implementation, customization, migration, integration, and managed support for mission-critical systems.</p>
+        <div class="tags"><span class="tag">Implementation</span><span class="tag">Migration</span><span class="tag">Integration</span><span class="tag">24×7 Support</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUCTS ============ -->
+<section class="block" id="products">
+  <div class="aurora a3"></div>
+  <div class="container">
+    <div class="center reveal">
+      <div class="eyebrow">Products</div>
+      <h2 class="section-title">Products That Power Modern Businesses</h2>
+      <p class="section-lead">Purpose-built SaaS products designed to simplify business operations and improve organizational efficiency.</p>
+    </div>
+    <div class="grid cols-3" style="margin-top:52px" id="productGrid"></div>
+
+    <div class="pricing-banner liquid-glass reveal">
+      <div>
+        <div class="eyebrow" style="margin-bottom:6px">Pricing</div>
+        <div class="price">Starting from ₹199 <small>/ user / month</small></div>
+      </div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <span style="align-self:center;color:hsl(var(--hero-sub));opacity:.8">Enterprise pricing available.</span>
+        <a href="#contact" class="btn btn-primary">Request a Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY CHOOSE US ============ -->
+<section class="block" id="why">
+  <div class="aurora a1" style="left:auto;right:-160px;top:-80px"></div>
+  <div class="container">
+    <div class="center reveal">
+      <div class="eyebrow">Why Choose Us</div>
+      <h2 class="section-title">Built for Enterprise Trust</h2>
+      <p class="section-lead">Deep fintech expertise, open-source mastery, and AI capability — delivered with enterprise discipline.</p>
+    </div>
+    <div class="grid cols-4" style="margin-top:52px" id="featGrid"></div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="block" style="padding:70px 0">
+  <div class="container">
+    <div class="stats" id="statGrid"></div>
+  </div>
+</section>
+
+<!-- ============ INDUSTRIES ============ -->
+<section class="block" id="industries">
+  <div class="aurora a2" style="right:auto;left:-140px"></div>
+  <div class="container">
+    <div class="center reveal">
+      <div class="eyebrow">Industries</div>
+      <h2 class="section-title">Serving Sectors That Move the World</h2>
+    </div>
+    <div class="pills reveal" style="justify-content:center" id="pillGrid"></div>
+  </div>
+</section>
+
+<!-- ============ TECHNOLOGIES ============ -->
+<section class="block" id="tech">
+  <div class="container">
+    <div class="center reveal">
+      <div class="eyebrow">Technologies</div>
+      <h2 class="section-title">A Modern, Battle-Tested Stack</h2>
+      <p class="section-lead">We build on proven open-source and cloud-native technologies trusted at global scale.</p>
+    </div>
+    <div class="tech-marquee reveal">
+      <div class="tech-row"><div class="tech-track" id="techTrack1" style="animation-duration:38s"></div></div>
+      <div class="tech-row"><div class="tech-track" id="techTrack2" style="animation-duration:46s"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="block" id="testimonials">
+  <div class="aurora a1" style="left:auto;right:-120px;bottom:-120px;top:auto"></div>
+  <div class="container">
+    <div class="center reveal">
+      <div class="eyebrow">Testimonials</div>
+      <h2 class="section-title">Trusted by Teams That Ship</h2>
+    </div>
+    <div class="grid cols-3" style="margin-top:52px">
+      <div class="quote-card liquid-glass reveal">
+        <div class="stars">★★★★★</div>
+        <p>"vyud.ai transformed our banking platform with exceptional expertise in Apache Fineract. Their team delivered beyond expectations."</p>
+        <div class="who"><span class="n">CEO</span><span class="r">Leading Microfinance Institution</span></div>
+      </div>
+      <div class="quote-card liquid-glass reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Professional, technically excellent, and always committed to customer success."</p>
+        <div class="who"><span class="n">Technology Director</span><span class="r">Digital Bank</span></div>
+      </div>
+      <div class="quote-card liquid-glass reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Their AI-powered solutions significantly improved our operational efficiency."</p>
+        <div class="who"><span class="n">Operations Head</span><span class="r">Financial Services Company</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="block">
+  <div class="container">
+    <div class="cta-block liquid-glass reveal">
+      <div class="aurora a1" style="top:-100px;left:10%;opacity:.35"></div>
+      <div class="aurora a2" style="bottom:-100px;right:10%;opacity:.35"></div>
+      <div style="position:relative;z-index:2">
+        <h2>Let's Build the Future Together</h2>
+        <p class="section-lead center" style="margin:20px auto 0">Partner with an AI-first engineering team that understands banking, scale, and the technologies of tomorrow.</p>
+        <div class="hero-cta" style="justify-content:center">
+          <a href="#contact" class="btn btn-primary">Book a Consultation</a>
+          <a href="#products" class="btn btn-secondary">Explore Products</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="block" id="contact">
+  <div class="aurora a3" style="left:10%;top:20%"></div>
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="eyebrow">Contact</div>
+        <h2 class="section-title">Get in Touch</h2>
+        <p class="section-lead">Tell us about your goals — our team will get back within one business day.</p>
+        <div style="margin-top:34px">
+          <div class="info-item">
+            <div class="ii"><svg fill="none" stroke-width="1.7" viewBox="0 0 24 24"><path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+            <div><h4>Business Address</h4><p>vyud.ai Technologies<br>[Address placeholder], India</p></div>
+          </div>
+          <div class="info-item">
+            <div class="ii"><svg fill="none" stroke-width="1.7" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg></div>
+            <div><h4>Email</h4>
+              <a href="mailto:contact@vyudai.com">contact@vyudai.com</a>
+              <a href="mailto:sales@vyudai.com">sales@vyudai.com (Sales)</a>
+              <a href="mailto:support@vyudai.com">support@vyudai.com (Support)</a>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="ii"><svg fill="none" stroke-width="1.7" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012 4.2 2 2 0 014 2h3a2 2 0 012 1.7c.1.9.4 1.8.7 2.6a2 2 0 01-.5 2.1L8 9.6a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.5c.8.3 1.7.6 2.6.7a2 2 0 011.7 2z"/></svg></div>
+            <div><h4>Phone</h4><p>+91 XXX XXX XXXX</p></div>
+          </div>
+          <div class="info-item">
+            <div class="ii"><svg fill="none" stroke-width="1.7" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+            <div><h4>Working Hours</h4><p>Monday – Friday · 9 AM – 6 PM IST</p></div>
+          </div>
+        </div>
+      </div>
+
+      <form class="liquid-glass reveal" id="contactForm" onsubmit="return handleSubmit(event)">
+        <div class="form-row">
+          <div class="field"><label>Name</label><input type="text" name="name" required placeholder="Your full name" /></div>
+          <div class="field"><label>Company</label><input type="text" name="company" placeholder="Company name" /></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label>Email</label><input type="email" name="email" required placeholder="you@company.com" /></div>
+          <div class="field"><label>Phone</label><input type="tel" name="phone" placeholder="+91 ..." /></div>
+        </div>
+        <div class="field">
+          <label>Service Interested In</label>
+          <select name="service">
+            <option>AI &amp; Intelligent Automation</option>
+            <option>Digital Banking Solutions</option>
+            <option>Enterprise Software Development</option>
+            <option>Product Engineering</option>
+            <option>Consulting &amp; Professional Services</option>
+            <option>SaaS Products</option>
+          </select>
+        </div>
+        <div class="field"><label>Message</label><textarea name="message" placeholder="Tell us about your project..."></textarea></div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Send Message</button>
+        <p class="form-note" id="formNote">We respond within one business day.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-col foot-about">
+        <a href="#home" class="brand" style="font-size:20px">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="6" cy="7" r="2" fill="#fff"/><circle cx="18" cy="6" r="1.6" fill="#fff"/><circle cx="12" cy="17" r="2.2" fill="#fff"/><circle cx="19" cy="16" r="1.5" fill="#fff"/><path d="M6 7L12 17M18 6L12 17M19 16L12 17" stroke="#fff" stroke-width="1.1" stroke-linecap="round"/></svg>
+          </span><span class="word"><i>v</i><i>y</i><i>u</i><i>d</i><i>-</i><i>a</i><i>i</i></span>
+        </a>
+        <p>Building tomorrow's technology. AI-first solutions for banking, fintech, enterprise software, and digital transformation.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Company</h5>
+        <a href="#about">About</a><a href="#services">Services</a><a href="#products">Products</a>
+        <a href="#">Careers</a><a href="#">Partners</a><a href="#">Blogs</a><a href="#">News</a>
+      </div>
+      <div class="foot-col">
+        <h5>Solutions</h5>
+        <a href="#services">Digital Banking</a><a href="#services">AI Solutions</a><a href="#services">Cloud</a>
+        <a href="#services">Enterprise Software</a><a href="#services">Consulting</a><a href="#services">Training</a><a href="#contact">Support</a>
+      </div>
+      <div class="foot-col">
+        <h5>Resources</h5>
+        <a href="#">Documentation</a><a href="#">Case Studies</a><a href="#">Customer Stories</a>
+        <a href="#">Knowledge Base</a><a href="#">FAQs</a><a href="#">Privacy Policy</a><a href="#">Terms</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 vyud.ai Technologies. All Rights Reserved.</span>
+      <span style="display:flex;gap:20px">
+        <a href="#">LinkedIn</a><a href="#">GitHub</a><a href="#">YouTube</a><a href="#">X</a><a href="#">Medium</a>
+      </span>
+      <span>Building Tomorrow's Technology.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---------- Generative hero animation: aurora + neural field ---------- */
+(function(){
+  var canvas = document.getElementById('bgCanvas');
+  if(!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var W, H, DPR;
+  var mouse = {x:.5, y:.42, tx:.5, ty:.42};      // eased pointer (viewport fractions)
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function resize(){
+    DPR = Math.min(window.devicePixelRatio || 1, 2);
+    W = canvas.clientWidth; H = canvas.clientHeight;
+    canvas.width = W * DPR; canvas.height = H * DPR;
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+  }
+  resize();
+  window.addEventListener('resize', function(){ resize(); seedNodes(); seedStars(); });
+
+  /* --- Deep-space purple wash --- */
+  function drawSpace(){
+    var g = ctx.createLinearGradient(0,0,0,H);
+    g.addColorStop(0,'rgba(28,10,58,0.38)');
+    g.addColorStop(.5,'rgba(16,6,38,0.22)');
+    g.addColorStop(1,'rgba(38,12,68,0.38)');
+    ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
+  }
+
+  /* --- Distant twinkling starfield --- */
+  var stars = [];
+  function seedStars(){
+    var count = Math.round(Math.min(220, Math.max(90, W*H/9000)));
+    stars = [];
+    for(var i=0;i<count;i++){
+      stars.push({
+        x: Math.random()*W, y: Math.random()*H,
+        r: Math.random()<.85 ? .4+Math.random()*.8 : 1.1+Math.random()*.9,
+        p: Math.random()*6.28, sp: .0004+Math.random()*.0012,
+        warm: Math.random()<.25            // a few violet-tinted stars
+      });
+    }
+  }
+  seedStars();
+  function drawStars(t){
+    for(var i=0;i<stars.length;i++){
+      var s = stars[i];
+      var tw = .35 + .65*(0.5+0.5*Math.sin(t*s.sp + s.p));
+      ctx.fillStyle = s.warm
+        ? 'rgba(216,180,254,'+(.55*tw).toFixed(3)+')'
+        : 'rgba(255,255,255,'+(.65*tw).toFixed(3)+')';
+      ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, 6.2832); ctx.fill();
+    }
+  }
+
+  /* --- Shooting stars: rare meteors --- */
+  var meteors = [];
+  function spawnMeteor(){
+    var fromLeft = Math.random() < .5;
+    var speed = 9 + Math.random()*5;                       // px / frame
+    var ang = (22 + Math.random()*20) * Math.PI/180;       // shallow dive
+    meteors.push({
+      x: fromLeft ? Math.random()*W*.35 : W*.55 + Math.random()*W*.45,
+      y: Math.random()*H*.45,
+      vx: Math.cos(ang)*speed*(fromLeft?1:-1),
+      vy: Math.sin(ang)*speed,
+      life: 0, max: 50 + Math.random()*30,
+      len: 90 + Math.random()*80
+    });
+  }
+  function drawMeteors(){
+    // rare: ~one every 8–12s on average, max 2 at once
+    if(meteors.length < 2 && Math.random() < .0018) spawnMeteor();
+    for(var i=meteors.length-1;i>=0;i--){
+      var m = meteors[i];
+      m.x += m.vx; m.y += m.vy; m.life++;
+      var lp = m.life/m.max;
+      var a = lp<.2 ? lp/.2 : lp>.7 ? Math.max(0,(1-lp)/.3) : 1;
+      var mag = Math.hypot(m.vx,m.vy);
+      var tx = m.x - m.vx/mag*m.len, ty = m.y - m.vy/mag*m.len;
+      var g = ctx.createLinearGradient(m.x,m.y,tx,ty);
+      g.addColorStop(0,'rgba(255,255,255,'+(.9*a).toFixed(3)+')');
+      g.addColorStop(.35,'rgba(196,181,253,'+(.45*a).toFixed(3)+')');
+      g.addColorStop(1,'rgba(196,181,253,0)');
+      ctx.strokeStyle = g; ctx.lineWidth = 2; ctx.lineCap = 'round';
+      ctx.beginPath(); ctx.moveTo(m.x,m.y); ctx.lineTo(tx,ty); ctx.stroke();
+      // bright head with glow
+      var hgl = ctx.createRadialGradient(m.x,m.y,0,m.x,m.y,7);
+      hgl.addColorStop(0,'rgba(255,255,255,'+(.9*a).toFixed(3)+')');
+      hgl.addColorStop(1,'rgba(216,180,254,0)');
+      ctx.fillStyle = hgl;
+      ctx.beginPath(); ctx.arc(m.x,m.y,7,0,6.2832); ctx.fill();
+      if(m.life >= m.max || m.x < -180 || m.x > W+180 || m.y > H+180) meteors.splice(i,1);
+    }
+  }
+
+  /* --- Aurora blobs: slow-drifting radial gradients in brand colors --- */
+  var blobs = [
+    {c:[ 99,102,241], r:.52, sp:.00009, ph:0.0,  ox:.22, oy:.30, amp:.16},  // indigo
+    {c:[168, 85,247], r:.46, sp:.00012, ph:2.1,  ox:.78, oy:.62, amp:.14},  // violet
+    {c:[ 34,211,238], r:.38, sp:.00007, ph:4.2,  ox:.55, oy:.20, amp:.18},  // cyan
+    {c:[147, 51,234], r:.30, sp:.00010, ph:5.3,  ox:.35, oy:.75, amp:.10}   // deep purple accent
+  ];
+  function drawAurora(t){
+    ctx.globalCompositeOperation = 'lighter';
+    for(var i=0;i<blobs.length;i++){
+      var b = blobs[i];
+      var x = (b.ox + Math.cos(t*b.sp + b.ph)*b.amp + (mouse.x-.5)*.05) * W;
+      var y = (b.oy + Math.sin(t*b.sp*1.3 + b.ph)*b.amp + (mouse.y-.5)*.05) * H;
+      var r = b.r * Math.max(W,H) * (1 + .08*Math.sin(t*b.sp*2 + b.ph));
+      var g = ctx.createRadialGradient(x,y,0,x,y,r);
+      g.addColorStop(0,'rgba('+b.c[0]+','+b.c[1]+','+b.c[2]+',0.16)');
+      g.addColorStop(.5,'rgba('+b.c[0]+','+b.c[1]+','+b.c[2]+',0.055)');
+      g.addColorStop(1,'rgba('+b.c[0]+','+b.c[1]+','+b.c[2]+',0)');
+      ctx.fillStyle = g;
+      ctx.beginPath(); ctx.arc(x,y,r,0,6.2832); ctx.fill();
+    }
+    ctx.globalCompositeOperation = 'source-over';
+  }
+
+  /* --- Neural field: drifting glowing nodes + proximity synapses --- */
+  var nodes = [], LINK;
+  function seedNodes(){
+    var count = Math.round(Math.min(110, Math.max(45, W*H/16000)));
+    LINK = Math.min(190, Math.max(120, W/9));
+    nodes = [];
+    for(var i=0;i<count;i++){
+      nodes.push({
+        x: Math.random()*W, y: Math.random()*H,
+        vx: (Math.random()-.5)*.22, vy: (Math.random()-.5)*.22,
+        r: .9 + Math.random()*1.7,
+        p: Math.random()*6.28,          // pulse phase
+        hue: Math.random()              // 0 → indigo, 1 → cyan
+      });
+    }
+  }
+  seedNodes();
+
+  function nodeColor(n, a){
+    var c1=[176,188,255], c2=[165,243,252];   // bright indigo-200 → cyan-200
+    var r = Math.round(c1[0]+(c2[0]-c1[0])*n.hue),
+        g = Math.round(c1[1]+(c2[1]-c1[1])*n.hue),
+        b = Math.round(c1[2]+(c2[2]-c1[2])*n.hue);
+    return 'rgba('+r+','+g+','+b+','+a+')';
+  }
+
+  function drawField(t){
+    var px = (mouse.x-.5)*18, py = (mouse.y-.5)*18;   // gentle parallax
+    // synapses
+    for(var i=0;i<nodes.length;i++){
+      var a = nodes[i];
+      for(var j=i+1;j<nodes.length;j++){
+        var b = nodes[j];
+        var dx=a.x-b.x, dy=a.y-b.y, d2=dx*dx+dy*dy;
+        if(d2 < LINK*LINK){
+          var o = (1 - Math.sqrt(d2)/LINK) * .22;
+          ctx.strokeStyle = 'rgba(148,163,255,'+o.toFixed(3)+')';
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(a.x+px, a.y+py); ctx.lineTo(b.x+px, b.y+py);
+          ctx.stroke();
+        }
+      }
+    }
+    // nodes with breathing glow
+    for(var k=0;k<nodes.length;k++){
+      var n = nodes[k];
+      var pulse = .55 + .45*Math.sin(t*.0012 + n.p);
+      ctx.fillStyle = nodeColor(n, .5 + .5*pulse);
+      ctx.beginPath(); ctx.arc(n.x+px, n.y+py, n.r*(0.9+.5*pulse), 0, 6.2832); ctx.fill();
+      // halo
+      var hg = ctx.createRadialGradient(n.x+px,n.y+py,0,n.x+px,n.y+py,n.r*8);
+      hg.addColorStop(0, nodeColor(n, .20*pulse));
+      hg.addColorStop(1, nodeColor(n, 0));
+      ctx.fillStyle = hg;
+      ctx.beginPath(); ctx.arc(n.x+px, n.y+py, n.r*8, 0, 6.2832); ctx.fill();
+      if(!reduced){
+        n.x += n.vx; n.y += n.vy;
+        if(n.x < -20) n.x = W+20; else if(n.x > W+20) n.x = -20;
+        if(n.y < -20) n.y = H+20; else if(n.y > H+20) n.y = -20;
+      }
+    }
+  }
+
+  window.addEventListener('pointermove', function(e){
+    mouse.tx = e.clientX / window.innerWidth;
+    mouse.ty = e.clientY / window.innerHeight;
+  }, {passive:true});
+
+  var running = true;
+  document.addEventListener('visibilitychange', function(){
+    running = !document.hidden;
+    if(running) requestAnimationFrame(frame);
+  });
+
+  function frame(t){
+    if(!running) return;
+    mouse.x += (mouse.tx-mouse.x)*.04;
+    mouse.y += (mouse.ty-mouse.y)*.04;
+    ctx.clearRect(0,0,W,H);
+    drawSpace();
+    drawAurora(t||0);
+    drawStars(t||0);
+    drawMeteors();
+    drawField(t||0);
+    if(!reduced) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+  requestAnimationFrame(function(){ canvas.classList.add('ready'); });
+})();
+
+/* ---------- Navbar scroll ---------- */
+window.addEventListener('scroll', function(){
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+/* ---------- Trusted-by marquee ---------- */
+(function(){
+  var brands = [
+    ['Apache Fineract','#e53e3e'],['Mifos','#0ea5e9'],['FinBank','#6366f1'],
+    ['MicroCredit Co','#a855f7'],['PaySphere','#22d3ee'],['NovaBank','#f59e0b'],
+    ['GovTrust','#10b981'],['InclusionX','#ec4899']
+  ];
+  var html = '';
+  function block(){
+    return brands.map(function(b){
+      return '<div class="marquee-item"><span class="ic" style="background:linear-gradient(135deg,'+b[1]+',#a855f7)">'+b[0][0]+'</span><span>'+b[0]+'</span></div>';
+    }).join('');
+  }
+  document.getElementById('marqueeTrack').innerHTML = block() + block();
+})();
+
+/* ---------- Products ---------- */
+(function(){
+  var products = [
+    ['vyud Track','GPS Tracking',['Fleet Management','Employee Tracking','Vehicle Monitoring','Real-time GPS']],
+    ['vyud Secure','Security',['Security Monitoring','Audit Trails','Identity Management','Compliance Dashboard']],
+    ['vyud Analytics','BI',['Business Intelligence','Executive Dashboards','Predictive Analytics','Real-time Reports']],
+    ['vyud Projects','PM',['Project Management','Task Management','Sprint Planning','Resource Allocation']],
+    ['vyud Delivery','Delivery',['Release Planning','Deployment Tracking','Risk Management','Milestone Monitoring']],
+    ['vyud Desk','Helpdesk',['Internal Helpdesk','Asset Management','Incident Tracking','Knowledge Base']]
+  ];
+  document.getElementById('productGrid').innerHTML = products.map(function(p){
+    return '<div class="product-card liquid-glass reveal"><div class="product-head"><span class="p-ic">'+p[0].split(' ')[1][0]+'</span><h3>'+p[0]+'</h3></div><ul>'+
+      p[2].map(function(f){return '<li>'+f+'</li>';}).join('')+'</ul></div>';
+  }).join('');
+})();
+
+/* ---------- Why choose us ---------- */
+(function(){
+  var feats = [
+    ['AI First','Intelligence built into everything we deliver.'],
+    ['Official Mifos Partner','Certified Apache Fineract expertise.'],
+    ['Open Source Experts','Deep community and codebase knowledge.'],
+    ['Enterprise Security','Security-first engineering and audits.'],
+    ['Cloud Native','Kubernetes, containers, and resilience.'],
+    ['Scalable Architecture','Systems that grow with your business.'],
+    ['15+ Years Experience','Seasoned engineering leadership.'],
+    ['Fintech Specialists','Domain depth across banking.'],
+    ['Global Delivery','Distributed teams, on-time delivery.'],
+    ['24×7 Support','Always-on managed services.'],
+    ['Customer Success Focus','Your outcomes drive our work.'],
+    ['Experienced Leadership','Proven track record at scale.']
+  ];
+  var ic = '<svg fill="none" stroke-width="1.7" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  document.getElementById('featGrid').innerHTML = feats.map(function(f){
+    return '<div class="feat liquid-glass reveal"><div class="fi">'+ic+'</div><h4>'+f[0]+'</h4><p>'+f[1]+'</p></div>';
+  }).join('');
+})();
+
+/* ---------- Stats (animated counters) ---------- */
+(function(){
+  var stats = [
+    ['15','+','Years Experience'],['50','+','Projects Delivered'],['10','+','Countries Served'],
+    ['99.9','%','Platform Availability'],['100','K+','End Users Supported'],['Official','','Mifos Partner']
+  ];
+  document.getElementById('statGrid').innerHTML = stats.map(function(s,i){
+    var numeric = !isNaN(parseFloat(s[0]));
+    return '<div class="stat liquid-glass reveal"><div class="num" data-target="'+(numeric?s[0]:'')+'" data-suffix="'+s[1]+'">'+(numeric?'0'+s[1]:s[0])+'</div><div class="lbl">'+s[2]+'</div></div>';
+  }).join('');
+})();
+
+function animateCount(el){
+  var target = parseFloat(el.getAttribute('data-target'));
+  if(isNaN(target)) return;
+  var suffix = el.getAttribute('data-suffix') || '';
+  var decimals = (el.getAttribute('data-target').indexOf('.') > -1) ? 1 : 0;
+  var start = null, dur = 1400;
+  function step(ts){
+    if(!start) start = ts;
+    var p = Math.min((ts - start)/dur, 1);
+    var eased = 1 - Math.pow(1-p,3);
+    el.textContent = (target*eased).toFixed(decimals) + suffix;
+    if(p < 1) requestAnimationFrame(step);
+    else el.textContent = target.toFixed(decimals) + suffix;
+  }
+  requestAnimationFrame(step);
+}
+
+/* ---------- Industries ---------- */
+(function(){
+  var inds = ['Banking','Microfinance','Financial Institutions','Government','NGOs','Insurance','Healthcare','Education','Technology Companies','SMEs','Large Enterprises'];
+  document.getElementById('pillGrid').innerHTML = inds.map(function(i){
+    return '<span class="pill liquid-glass">'+i+'</span>';
+  }).join('');
+})();
+
+/* ---------- Technologies marquee ---------- */
+(function(){
+  var DEV = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/';
+  var SI  = 'https://cdn.simpleicons.org/';
+  // [name, logoURL|null, fallbackColor]
+  var techs = [
+    ['Java',            DEV+'java/java-original.svg',                   '#f89820'],
+    ['Spring Boot',     DEV+'spring/spring-original.svg',               '#6db33f'],
+    ['Apache Fineract', null,                                           '#e53e3e'],
+    ['Mifos Payment Hub', null,                                         '#0ea5e9'],
+    ['Kafka',           SI+'apachekafka/white',                         '#231f20'],
+    ['Kubernetes',      DEV+'kubernetes/kubernetes-plain.svg',          '#326ce5'],
+    ['Docker',          DEV+'docker/docker-original.svg',               '#2496ed'],
+    ['AWS',             null,                                           '#ff9900'],
+    ['Angular',         DEV+'angularjs/angularjs-original.svg',         '#dd0031'],
+    ['React',           DEV+'react/react-original.svg',                 '#61dafb'],
+    ['PostgreSQL',      DEV+'postgresql/postgresql-original.svg',       '#336791'],
+    ['YugabyteDB',      null,                                           '#ff6e42'],
+    ['MongoDB',         DEV+'mongodb/mongodb-original.svg',             '#47a248'],
+    ['ElasticSearch',   DEV+'elasticsearch/elasticsearch-original.svg', '#fed10a'],
+    ['Camunda',         SI+'camunda/FC5D0D',                            '#fc5d0d'],
+    ['Zeebe',           null,                                           '#8e44ad'],
+    ['Prometheus',      DEV+'prometheus/prometheus-original.svg',       '#e6522c'],
+    ['Grafana',         DEV+'grafana/grafana-original.svg',             '#f46800'],
+    ['OpenAI',          SI+'openai/white',                              '#10a37f'],
+    ['Ollama',          SI+'ollama/white',                              '#7c7c7c'],
+    ['Python',          DEV+'python/python-original.svg',               '#3776ab']
+  ];
+  function tile(t){
+    var initials = t[0].split(' ').map(function(w){return w[0];}).join('').slice(0,2).toUpperCase();
+    var logo = t[1]
+      ? '<img src="'+t[1]+'" alt="" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'grid\'">' +
+        '<span class="tdot" style="background:'+t[2]+';display:none">'+initials+'</span>'
+      : '<span class="tdot" style="background:'+t[2]+'">'+initials+'</span>';
+    return '<div class="tech liquid-glass">'+logo+'<span class="tname">'+t[0]+'</span></div>';
+  }
+  // split across two rows, each duplicated for a seamless -50% loop
+  var half = Math.ceil(techs.length/2);
+  [techs.slice(0,half), techs.slice(half)].forEach(function(row,i){
+    var html = row.map(tile).join('');
+    document.getElementById('techTrack'+(i+1)).innerHTML = html + html;
+  });
+})();
+
+/* ---------- Reveal on scroll + counters ---------- */
+(function(){
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        e.target.querySelectorAll && e.target.querySelectorAll('.num[data-target]').forEach(animateCount);
+        if(e.target.classList.contains('stat')){
+          var n = e.target.querySelector('.num[data-target]');
+          if(n) animateCount(n);
+        }
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+
+/* ---------- Parallax scroll effects ---------- */
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var vh = window.innerHeight;
+  window.addEventListener('resize', function(){ vh = window.innerHeight; }, {passive:true});
+  var heroCenter = document.querySelector('.hero-center');
+  var marqueeRegion = document.querySelector('.marquee-region');
+  var canvas = document.getElementById('bgCanvas');
+
+  // background decor: driven by host section position (immediate feel via lerp)
+  var decor = Array.prototype.map.call(document.querySelectorAll('.aurora'), function(el,i){
+    return {el:el, host:el.parentElement, speed:(i%3===0? .10 : i%3===1? .18 : -.12), cur:0};
+  }).concat(Array.prototype.map.call(document.querySelectorAll('.about-visual .float'), function(el,i){
+    return {el:el, host:el.parentElement, speed:(i===0? -.09 : .14), cur:0};
+  }));
+
+  // content layers: grids counter-drift against their section headers
+  var layers = [];
+  function addLayer(sel, speed){
+    Array.prototype.forEach.call(document.querySelectorAll(sel), function(el){
+      layers.push({el:el, speed:speed, cur:0, reveal:el.classList.contains('reveal'), inited:false});
+    });
+  }
+  addLayer('#services .grid',        -.045);
+  addLayer('#productGrid',           -.05);
+  addLayer('#featGrid',              -.045);
+  addLayer('#statGrid',              -.06);
+  addLayer('#testimonials .grid',    -.05);
+  addLayer('#pillGrid',              -.055);
+  addLayer('section > .container > .center', .06);   // section headers drift opposite their grids
+  addLayer('.pricing-banner',         .07);
+  addLayer('.cta-block',              .05);
+  addLayer('#contactForm',           -.04);
+
+  function offset(refEl, speed){
+    var r = refEl.getBoundingClientRect();
+    if(r.bottom < -300 || r.top > vh+300) return null;
+    return (r.top + r.height/2 - vh/2) * speed;
+  }
+
+  function frame(){
+    var y = window.scrollY;
+
+    // 1. hero depth stack: four rates — canvas < content < marquee, all 1:1 with scroll
+    if(y <= vh){
+      heroCenter.style.transform  = 'translateY('+(y*.35).toFixed(1)+'px)';
+      heroCenter.style.opacity    = Math.max(0, 1 - y/(vh*.85)).toFixed(3);
+      canvas.style.transform      = 'translateY('+(y*.18).toFixed(1)+'px)';
+      marqueeRegion.style.transform = 'translateY('+(y*.55).toFixed(1)+'px)';
+      marqueeRegion.style.opacity = Math.max(0, 1 - y/(vh*.6)).toFixed(3);
+    }
+
+    // 2. auroras + about floating chips
+    decor.forEach(function(p){
+      var t = offset(p.host, p.speed);
+      if(t === null) return;
+      p.cur += (t - p.cur) * .1;
+      p.el.style.transform = 'translateY('+p.cur.toFixed(2)+'px)';
+    });
+
+    // 3. content layers (wait for reveal entrance, then take over the transform)
+    layers.forEach(function(p){
+      if(p.reveal){
+        if(!p.el.classList.contains('in')) return;
+        if(!p.inited){ p.inited = true; p.el.style.transition = 'opacity .7s ease'; }
+      }
+      var t = offset(p.el, p.speed);
+      if(t === null) return;
+      p.cur += (t - p.cur) * .1;
+      p.el.style.transform = 'translate3d(0,'+p.cur.toFixed(2)+'px,0)';
+    });
+
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+
+/* ---------- Contact form ---------- */
+function handleSubmit(e){
+  e.preventDefault();
+  var note = document.getElementById('formNote');
+  note.textContent = '✓ Thank you! Your message has been received. We\'ll be in touch shortly.';
+  note.style.color = '#4ade80';
+  document.getElementById('contactForm').reset();
+  return false;
+}
+</script>
+</body>
+</html>
